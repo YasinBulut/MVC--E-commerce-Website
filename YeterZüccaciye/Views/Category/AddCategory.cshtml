@@ -1,0 +1,20 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br />
+<h2>Kategori Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Kategori Ad</label>
+    @Html.TextBoxFor(x=>x.CATEGORYNAME,new { @class="form-control" })
+    <br />
+    <button class="btn btn-info" id="btn1">Kaydet</button>
+    <script>
+        $('#btn1').click(function () {
+            alert("Kategori Başarılı Şekilde Eklendii")
+        });
+    </script>
+</form>

@@ -1,0 +1,41 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Product
+@{
+    ViewBag.Title = "GoProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Ürün Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.PRODUCTID)
+    <label>Ürün Ad</label>
+    @Html.TextBoxFor(x => x.PRODUCTNAME, new { @class = "form-control" })
+    <br />
+    <label>Marka</label>
+    @Html.TextBoxFor(x => x.BRAND, new { @class = "form-control" })
+    <br />
+    <label>Stok</label>
+    @Html.TextBoxFor(x => x.STOK, new { @class = "form-control" })
+    <br />
+    <label>Alış Fiyat</label>
+    @Html.TextBoxFor(x => x.GETPRICE, new { @class = "form-control" })
+    <br />
+    <label>Satış Fiyat</label>
+    @Html.TextBoxFor(x => x.SELLPRICE, new { @class = "form-control" })
+    <br />
+    <label>Kategori</label>
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })*@
+
+    <br />
+    <label>Görsel</label>
+    @Html.TextBoxFor(x => x.IMAGE, new { @class = "form-control" })
+    <br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.STATUS, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+}
+

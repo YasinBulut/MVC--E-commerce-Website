@@ -1,0 +1,63 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@model List<Product>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>İTP PROJE</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/heroic-features.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+            <h1 class="display-3">YETER ZÜCCACİYE</h1>
+            <p class="lead">1995' den beri züccaciye sektöründe olan firmamız 2021 itibariyle tek tuş ötenizde</p>
+            <a href="#" class="btn btn-info btn-lg">EV EŞYALARI</a>
+            <a href="#" class="btn btn-info btn-lg">ELEKTRONİK ALETLER</a>
+            <a href="#" class="btn btn-info btn-lg">HEDİYELİKLER</a>
+            <a href="#" class="btn btn-info btn-lg">HAFTANIN İNDİRİMİ</a>
+            <a href="#" class="btn btn-info btn-lg">HAFTANIN MÜŞTERİLERİ</a>
+        </header>
+        <div class="row text-center">
+            @foreach (var x in Model)
+            {
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src="@x.IMAGE" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">@x.PRODUCTNAME</h4>
+                        <p class="card-text">@x.BRAND</p>
+                        <p class="card-text">@x.Category.CATEGORYNAME</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-group-justified">Sepete Ekle</a>
+                        <a href="/ProductDetay/Index/" class="btn btn-dark">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+        </div>
+    </footer>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

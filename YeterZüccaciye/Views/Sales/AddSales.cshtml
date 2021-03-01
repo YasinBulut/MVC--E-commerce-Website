@@ -1,0 +1,31 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.SalesMove
+@{
+    ViewBag.Title = "AddSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Satış Sayfası </h2>
+<br />
+<form class="form-group" method="post">
+    <label>Ürün</label>
+    @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.vals1, new { @class = "form-control" })
+    <br />
+    <label>Müşteriler</label>
+    @Html.DropDownListFor(x => x.CustomerID, (List<SelectListItem>)ViewBag.vals2, new { @class = "form-control" })
+    <br />
+    <label>Personel</label>
+    @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.vals3, new { @class = "form-control" })
+    <br />
+    <label>Adet</label>
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+    <br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    <label>Toplam Tutar</label>
+    @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Satış Yap</button>
+</form>
+

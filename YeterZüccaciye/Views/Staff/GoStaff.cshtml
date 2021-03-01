@@ -1,0 +1,29 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Staff
+@{
+    ViewBag.Title = "GoStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Güncelle</h2>
+<br />
+@using (Html.BeginForm("UpdateStaff", "Staff", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.PersonelID)
+    <label>AD</label>
+    @Html.TextBoxFor(x => x.PersonelAD, new { @class = "form-control" })
+    <br />
+    <label>SOYAD</label>
+    @Html.TextBoxFor(x => x.PersonelUSERNAME, new { @class = "form-control" })
+    <br />
+    <label>GÖRSEL</label>
+    <input type="file" name="PersonelIMAGE" />
+    <br />
+    <label>DEPARTMAN</label>
+    @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</div>
+}
+

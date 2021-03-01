@@ -1,0 +1,37 @@
+﻿@model IEnumerable<YeterZüccaciye.Models.Sınıflar.GrupSınıf2>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Departman Bilgi Sayfası</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>DEPARTMAN</th>
+                    <th>PROGRESS-BAR</th>
+                    <th style="width: 40px">SAYI</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var X in Model)
+                {
+                    <tr>
+                        <td>1.</td>
+                        <td>@X.Departman</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 55%">@X.Sayi</div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">@X.Sayi</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

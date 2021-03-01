@@ -1,0 +1,50 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<SalesMove>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Listesi</h2>
+<br />
+<table  class="table table-bordered">
+    <thead>
+        <tr>
+            <th>SATIŞ ID</th>
+            <th>ÜRÜN</th>
+            <th>MÜŞTERİ</th>
+            <th>PERSONEL</th>
+            <th>ADET</th>
+            <th>FİYAT</th>
+            <th>TOPLAM</th>
+            <th>TARİH</th>
+            <th>GÜNCELLE</th>
+            <th>DETAY</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SalesID</td>
+            <td>@x.Product.PRODUCTNAME</td>
+            <td>@x.Customers.CustomerNAME @x.Customers.CustomerUSERNAME</td>
+            <td>@x.Staff.PersonelAD @x.Staff.PersonelUSERNAME</td>
+            <td>@x.Amount</td>
+            <td>@x.Price</td>
+            <td>@x.Total</td>
+            <td>@x.SalesDate</td>
+            <td><a href="/Sales/GoSales/@x.SalesID" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Sales/SalesExplanation/@x.SalesID" class="btn btn-outline-primary">Detaylar</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+   {"page-link"}
+})
+<a href="/Sales/AddSales/" class="btn btn-info">Satış Yap</a>
+

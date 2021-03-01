@@ -1,0 +1,28 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@model List<CargoTakip>
+@{
+    ViewBag.Title = "CargoDetay";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<br />
+<h2>Kargo Detay</h2>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sıra</th>
+            <th>AÇIKLAMA</th>
+            <th>TARİH</th>
+        </tr>
+    </thead>
+    @{ int s = 0;}
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@{s++;} @s</td>
+    <td>@x.Açıklama</td>
+    <td>@x.TarihZaman</td>
+</tr>
+    }
+</table>

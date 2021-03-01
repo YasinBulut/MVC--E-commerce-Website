@@ -1,0 +1,56 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Ürün Listesi</h2>
+<br />
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>URUN</th>
+            <th>MARKA</th>
+            <th>STOK</th>
+            <th>ALIŞ FİYAT</th>
+            <th>SATIŞ FİYAT</th>
+            <th>DURUM</th>
+            <th>KATEGORİ</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            <th>SATIŞ YAP</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.PRODUCTID</td>
+            <td>@x.PRODUCTNAME</td>
+            <td>@x.BRAND</td>
+            <td>@x.STOK</td>
+            <td>@x.GETPRICE</td>
+            <td>@x.SELLPRICE</td>
+            <td>@x.STATUS</td>
+            <td>@x.Category.CATEGORYNAME</td>
+            <td><a href="/Product/DeleteProduct/@x.PRODUCTID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Product/GoProduct/@x.PRODUCTID" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Product/Buying/@x.PRODUCTID" class="btn btn-outline-primary">Satış Yap</a></td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+   {"page-link"}
+})
+<a href="/Product/AddProduct/" class="btn btn-info">Yeni Ürün</a>
+<a href="/QR/Index" class="btn btn-info">QR Kod Ekle</a>
+
+
+

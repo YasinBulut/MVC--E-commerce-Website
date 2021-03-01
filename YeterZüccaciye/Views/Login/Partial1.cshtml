@@ -1,0 +1,22 @@
+﻿
+<div id="small-dialog2" class="mfp-hide book-form">
+    <div class="login-form login-form-left">
+        <div class="agile-row">
+            <h3>KAYIT OL</h3>
+            <div class="login-agileits-top">
+                @using (Html.BeginForm("CustomerLogin", "Login", FormMethod.Post))
+                {
+                    <input type="text" class="name" name="CustomerNAME" Placeholder="Adınız" required="" />
+                    <input type="text" class="name" name="CustomerUSERNAME" Placeholder="Soyadınız" required="" />
+                    <input type="text" class="name" name="CustomerCITY" Placeholder="Şehir" required="" />
+                    <input type="text" class="email" name="CustomerMAIL" Placeholder="Mail" required="" />
+                    <input type="password" class="password" name="CustomerPassword" Placeholder="Şifre" required="" />
+                    <div class="login-check">
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Kuralları Okudum <a href="#"> Kabul ediyorum</a></label>
+                    </div>
+                    <input type="submit" value="Kayıt Ol">
+                }
+            </div>
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,94 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Listesi</h2>
+<br />
+<table id="tbl2" class="table table-bordered" style="margin-top:15px;">
+    <thead>
+        <tr>
+            <th>SERİ  SIRA  NO</th>
+            <th>VERGİ DAİRESİ</th>
+            <th>TARİH</th>
+            <th>SAAT</th>
+            <th>TESLİM EDEN</th>
+            <th>TESLİM ALAN</th>
+            <th>TOPLAM</th>
+            <th>GÜNCELLE</th>
+            <th>DETAYLAR</th>
+            <th>POPUP LİSTE</th>
+            <th>YENİ KALEM</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var K in Model)
+        {
+            <tr>
+                <td>@K.InvoiceSERİNO  @K.InvoiceSIRANO</td>
+                <td>@K.Tax</td>
+                <td>@K.Date</td>
+                <td>@K.Hour</td>
+                <td>@K.Selling</td>
+                <td>@K.Buyer</td>
+                <td>@K.Toplam ₺</td>
+                <td><a href="/Invoice/GoInvoices/@K.InvoiceID" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a href="/Invoice/InvoirceExplanation/@K.InvoiceID" class="btn btn-outline-primary">Detaylar</a></td>
+                <td><a href="/Invoice/InvoirceExplanation/@K.InvoiceID" class="btn btn-outline-info">Popup</a></td>
+                <td><a href="/Invoice/AddPart/@K.InvoiceID" class="btn btn-outline-info">Yeni Kalem</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+   {"page-link"}
+})
+<a href="/Invoice/AddInvoices" class="btn btn-info">Fatura Ekle</a>
+<br />
+<br />
+<button type="button" class="btn btn-info"  data-toggle="Modal" data-target="#Modal1">Popup Penceresi</button>
+@*<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">POPUP DİYALOG EKRANI</h2>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>Seri Sıra No</td>
+                        <th>VERGİ DAİRESİ</th>
+                        <th>TARİH</th>
+                        <th>SAAT</th>
+                        <th>TESLİM EDEN</th>
+                        <th>TESLİM ALAN</th>
+                        <th>TOPLAM</th>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.InvoiceSERİNO  @x.InvoiceSIRANO</td>
+                            <td>@x.Tax</td>
+                            <td>@x.Date</td>
+                            <td>@x.Hour</td>
+                            <td>@x.Selling</td>
+                            <td>@x.Buyer</td>
+                            <td>@x.Toplam</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+

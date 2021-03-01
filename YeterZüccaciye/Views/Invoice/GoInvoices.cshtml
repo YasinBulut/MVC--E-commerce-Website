@@ -1,0 +1,36 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Invoice
+@{
+    ViewBag.Title = "GoInvoices";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Güncelleme Sayfassı</h2>
+<br />
+@using (Html.BeginForm("UpdateInvoice", "Invoice", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.InvoiceID)
+    <label>SERİ NO</label>
+    @Html.TextBoxFor(x => x.InvoiceSERİNO, new { @class = "form-control" })
+    <br />
+    <label>SIRA NO</label>
+    @Html.TextBoxFor(x => x.InvoiceSIRANO, new { @class = "form-control" })
+    <br />
+    <label>VERGİ DAİRESİ</label>
+    @Html.TextBoxFor(x => x.Tax, new { @class = "form-control" })
+    <br />
+    <label>TARİH</label>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <label>SAAT</label>
+    @Html.TextBoxFor(x => x.Hour, new { @class = "form-control" })
+    <br />
+    <label>TESLİM EDEN</label>
+    @Html.TextBoxFor(x => x.Selling, new { @class = "form-control" })
+    <br />
+    <label>TESLİM ALAN</label>
+    @Html.TextBoxFor(x => x.Buyer, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+}
+
+    

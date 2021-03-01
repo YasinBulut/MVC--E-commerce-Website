@@ -1,0 +1,31 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@model List<Invoice_part> 
+@{
+    ViewBag.Title = "InvoirceExplanation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Kalemleri Sayfası</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>AÇIKLAMA</th>
+        <th>MİKTAR</th>
+        <th>BİRİM FİYAT</th>
+        <th>TUTAR</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Explanation</td>
+            <td>@x.Quantity</td>
+            <td>@x.UnitPrice</td>
+            <td>@x.Amount</td>
+        </tr>
+    }
+
+</table>
+<a href="/Invoice/AddPart" class="btn btn-info">Yeni Kalem Girişi</a>
+
+

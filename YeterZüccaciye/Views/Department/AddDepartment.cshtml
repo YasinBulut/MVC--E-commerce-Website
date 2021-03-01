@@ -1,0 +1,14 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Department
+@{
+    ViewBag.Title = "AddDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Departman Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Departman Ad</label>
+    @Html.TextBoxFor(x => x.DepartmentNAME, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

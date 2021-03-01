@@ -1,0 +1,95 @@
+﻿@*@model YeterZüccaciye.Models.Sınıflar.Customers
+@using (Html.BeginForm("Index", "CustomerPanel", FormMethod.Post))*@
+@*{*@
+<form class="form-horizontal">
+
+    <div class="form-group row">
+
+        <label for="inputName" class="col-sm-2 col-form-label">Ad</label>
+
+        <div class="col-sm-10">
+
+            @*@Html.TextBoxFor(x => x.CustomerNAME, new { @class = "form-control" })*@
+           <input class="text" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="inputEmail" class="col-sm-2 col-form-label">Soyad</label>
+
+        <div class="col-sm-10">
+
+            @*@Html.TextBoxFor(x => x.CustomerUSERNAME, new { @class = "form-control" })*@
+            <input class="text" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="inputName2" class="col-sm-2 col-form-label">Mail</label>
+
+        <div class="col-sm-10">
+
+            @*@Html.TextBoxFor(x => x.CustomerMAIL, new { @class = "form-control" })*@
+            <input class="text" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="inputExperience" class="col-sm-2 col-form-label">Şehir</label>
+
+        <div class="col-sm-10">
+
+            @*@Html.TextBoxFor(x => x.CustomerCITY, new { @class = "form-control" })*@
+            <input class="text" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <label for="inputSkills" class="col-sm-2 col-form-label">Şifre</label>
+
+        <div class="col-sm-10">
+
+            @*@Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })*@
+            <input class="text" />
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <div class="offset-sm-2 col-sm-10">
+
+            <div class="checkbox">
+
+                <label>
+
+                    <input type="checkbox"> Bilgileri Okudum <a href="#">Onayladım</a>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+
+        <div class="offset-sm-2 col-sm-10">
+
+            <button type="submit" class="btn btn-danger">Güncelle</button>
+
+        </div>
+
+    </div>
+
+</form>
+@*}*@

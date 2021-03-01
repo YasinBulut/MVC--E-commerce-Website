@@ -1,0 +1,18 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Category
+@{
+    ViewBag.Title = "GoCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Kategori Ad</label>
+        @Html.TextBoxFor(x=>x.CATEGORYNAME,new  { @class="form-control" })
+        @Html.HiddenFor(x=>x.CATEGORYID)
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+

@@ -1,0 +1,41 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Staff>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Personel Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Personel ID</th>
+            <th>AD</th>
+            <th>SOYAD</th>
+            <th>DEPARTMAN</th>
+            <th>GÜNCELLE</th>   
+            <th>SATIŞLAR</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.PersonelID</td>
+            <td>@x.PersonelAD</td>
+            <td>@x.PersonelUSERNAME</td>
+            <td>@x.Department.DepartmentNAME</td>
+            <td><a href="/Staff/GoStaff/@x.PersonelID" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Department/DepartmentStaffSales/@x.PersonelID" class="btn btn-outline-primary">Detaylar</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+   {"page-link"}
+})
+<a href="/Staff/AddStaff/" class="btn btn-info">Müşteri Ekle</a>
+<a href="/QR/Index" class="btn btn-info">QR Kod Ekle</a>

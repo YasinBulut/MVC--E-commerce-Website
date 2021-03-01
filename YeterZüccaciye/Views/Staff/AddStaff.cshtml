@@ -1,0 +1,27 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Staff
+@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Personel Ekleme Sayfası </h2>
+<br />
+@using (Html.BeginForm("AddStaff", "Staff", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form class="form-group" method="post">
+    <label>Personel Ad</label>
+    @Html.TextBoxFor(x => x.PersonelAD, new { @class = "form-control" })
+    <br />
+    <label>SOYAD</label>
+    @Html.TextBoxFor(x => x.PersonelUSERNAME, new { @class = "form-control" })
+    <br />
+    <label>GÖRSEL</label>
+    <input type="file" name="PersonelIMAGE" />
+    <br />
+    <label>DEPARTMAN</label>
+    @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>
+}

@@ -1,0 +1,27 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Customers
+@{
+    ViewBag.Title = "GoCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Müşteri Güncelle</h2>
+<br />
+@using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.CustomerID)
+        <label>AD</label>
+        @Html.TextBoxFor(x => x.CustomerNAME, new { @class = "form-control" })
+        <br />
+        <label>SOYAD</label>
+        @Html.TextBoxFor(x => x.CustomerUSERNAME, new { @class = "form-control" })
+        <br />
+        <label>ŞEHİR</label>
+        @Html.TextBoxFor(x => x.CustomerCITY, new { @class = "form-control" })
+        <br />
+        <label>MAİL</label>
+        @Html.TextBoxFor(x => x.CustomerMAIL, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}

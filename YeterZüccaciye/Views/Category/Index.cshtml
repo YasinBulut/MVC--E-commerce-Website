@@ -1,0 +1,43 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kategori Listesi</h2>
+<br />
+<table id="tbl2" class="table table-bordered" style="margin-top:15px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>KATEGORİ AD</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>
+                    @c.CATEGORYID
+                </td>
+                <td>
+                    @c.CATEGORYNAME
+                </td>
+                <td><a href="/Category/DeleteCategory/@c.CATEGORYID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Category/GoCategory/@c.CATEGORYID" class="btn btn-outline-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+   {"page-link"}
+})
+<a href="/Category/AddCategory" class="btn btn-info">Kategori Ekle</a>

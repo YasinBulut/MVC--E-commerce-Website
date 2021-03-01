@@ -1,0 +1,25 @@
+﻿@model YeterZüccaciye.Models.Sınıflar.Customers
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Müşteri Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Müşteri Ad</label>
+    @Html.TextBoxFor(x => x.CustomerNAME, new { @class = "form-control" })
+    <br />
+    <label>Müşteri Soyad</label>
+    @Html.TextBoxFor(x => x.CustomerUSERNAME, new { @class = "form-control" })
+    <br />
+    <label>Mail</label>
+    @Html.TextBoxFor(x => x.CustomerMAIL, new { @class = "form-control" })
+    <br />
+    <label>Şehir</label>
+    @Html.TextBoxFor(x => x.CustomerCITY, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

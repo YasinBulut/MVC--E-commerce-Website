@@ -1,0 +1,45 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Müşteri Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>MÜŞTERİ ID</th>
+            <th>AD</th>
+            <th>SOYAD</th>
+            <th>ŞEHİR</th>
+            <th>MAİL</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CustomerID</td>
+            <td>@x.CustomerNAME</td>
+            <td>@x.CustomerUSERNAME</td>
+            <td>@x.CustomerCITY</td>
+            <td>@x.CustomerMAIL</td>
+            <td><a href="/Customer/DeleteCustomer/@x.CustomerID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Customer/GoCustomer/@x.CustomerID" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Customer/CustomerSales/@x.CustomerID" class="btn btn-outline-primary">Detaylar</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+   {"page-link"}
+})
+<a href="/Customer/AddCustomer/" class="btn btn-info">Müşteri Ekle</a>
+<a href="/QR/Index" class="btn btn-info">QR Kod Ekle</a>

@@ -1,0 +1,41 @@
+﻿@using YeterZüccaciye.Models.Sınıflar
+@model List<CargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kargolar</h2>
+<br />
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Numarası: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<table id="tbl2" class="table table-bordered" style="margin-top:15px;">
+    <thead>
+        <tr>
+            <th>PERSONEL</th>
+            <th>ALICI</th>
+            <th>TARİH</th> 
+            <th>Takip Kodu</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td> @c.Personel </td>
+                <td> @c.Alici </td>
+                <td> @c.Tarih </td>
+                <td>@c.TakipKodu</td>
+                <td><a href="/Cargo/KargoTakip/@c.TakipKodu" class="btn btn-outline-primary">Detaylar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Cargo/AddCargo" class="btn btn-info">Kargo Ekle</a>
+<a href="/QR/Index" class="btn btn-info">QR Kod Ekle</a>

@@ -1,0 +1,69 @@
+﻿
+@model  YeterZüccaciye.Models.Sınıflar.Class2
+@{
+    ViewBag.Title = "Dinamik";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <h2 class="panel-title pull-left" style="margin-left:10px;">
+                <strong>Order Details</strong>
+            </h2>
+            <button style="margin-right:10px" class="btn btn-primary pull-right" onclick="addNewOrder()">New Order</button>
+        </div>
+    </div>
+        @foreach (var x in Model.deger1)
+        {
+            <div class="panel-body">
+                <table class="table table-striped table-responsive">
+                    <tbody>
+                        <tr>
+                            <td>Seri-Sıra No : @x.InvoiceSERİNO-@x.InvoiceSIRANO</td>
+                            <td>TARİH : @x.Date</td>
+                            <td>VERGİ DAİRESİ : @x.Tax</td>
+                            <td>VERGİ DAİRESİ : @x.Tax</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>AÇIKLAMA</th>
+                                            <th>MİKTAR</th>
+                                            <th>FİYAT</th>
+                                        </tr>
+                                        @{
+                                            var totalBill = 0;
+                                        }
+                                        @foreach (var order in item.Invoice)
+                                        D
+                                            <tr>
+                                                <td>@x.Explanation</td>
+                                                <td>@x.Toplam</td>
+                                                <td>@x.pr</td>
+                                                <td>@order.Toplam</td>
+                                                s
+                                            </tr>
+                                            totalBill = totalBill + @Convert.ToInt32(order.Toplam);
+                                        }
+                                    </tbody>
+                                </table>
+                                <span class="pull-right" style="margin-right:100px;"><strong>Total Bill :  </strong> @totalBill</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    else
+    {
+        <div class="panel-body">
+            <h3 style="color:red;"></h3>
+        </div>
+    }
+</div>
+
